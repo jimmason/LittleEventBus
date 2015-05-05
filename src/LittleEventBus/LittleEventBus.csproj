@@ -42,7 +42,6 @@
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
-    <Compile Include="LittleEventBusContainerRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleThreadedEventBus.cs" />
   </ItemGroup>
