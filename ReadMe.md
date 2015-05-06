@@ -2,27 +2,6 @@
 
 Little event bus is a lightweight event bus for .net applications
 
-It takes a single dependency [NanoIoC](https://github.com/trullock/NanoIoC) which is used internally for dependency resolution.
-
-## Getting Started
-
-#### Setup and Configuration
-
-If you are not Using NanoIoC as your applications IoC Container, you will need to run the Event Handler Type Processor in your applications startup like so
-
-```csharp
-Container.Global.RunAllTypeProcessors()
-```
-
-You will also need to register the event bus itself
-
-```csharp
-//Structuremap
-this.For<IEventBus>().Use<SingleThreadedEventBus>();
-
-//nano IoC
-Container.Global.Register<IEventBus, SingleThreadedEventBus>(Lifecycle.Singleton);
-```
 
 #### Events
 Events should inherit from the Event base class and set the EventId to a new Guid, or the Aggregate Root id of your Domain Object if used in this context.
