@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LittleEventBus.NanoIoC\LittleEventBus.NanoIoC.csproj">
+      <Project>{92eed546-a455-4bf3-a467-b660bdeaa961}</Project>
+      <Name>LittleEventBus.NanoIoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LittleEventBus\LittleEventBus.csproj">
       <Project>{95268845-1f1a-4cb4-8c51-4aac5db6841f}</Project>
       <Name>LittleEventBus</Name>

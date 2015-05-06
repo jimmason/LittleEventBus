@@ -10,10 +10,10 @@ namespace LittleEventBus.Example
         {
             //Do this in your apps startup
             Container.Global.RunAllTypeProcessors();
+            Container.Global.RunAllRegistries();
 
             //In reality you want to take a IEventBus in the constructor and register this in your IoC
-            var eventBus = new SingleThreadedEventBus();
-
+            var eventBus = Container.Global.Resolve<IEventBus>();
             //Create an event
             var @event = new OrderPlaced(Guid.NewGuid());
 

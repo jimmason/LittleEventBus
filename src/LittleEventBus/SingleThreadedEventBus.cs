@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using NanoIoC;
 
 namespace LittleEventBus
 {
     public sealed class SingleThreadedEventBus : IEventBus
     {
+        private readonly IEventHandlerResolver eventHandlerResolver;
+
+        public SingleThreadedEventBus(IEventHandlerResolver eventHandlerResolver)
+        {
+            this.eventHandlerResolver = eventHandlerResolver;
+        }
+
         public void PublishEvent(Event @event)
         {
             this.Publish(@event);
@@ -23,9 +28,7 @@ namespace LittleEventBus
         {
             var handler = typeof (IEventHandler<>).MakeGenericType(@event.GetType());
 
-            //todo : This is not efficient at all. Register the closed generic types in the IoC container
-            foreach (var eventHandler in Container.Global.ResolveAll(typeof(IEventHandler))
-                .Cast<object>().Where(eventHandler => eventHandler.GetType().GetInterfaces().Contains(handler)))
+            foreach (var eventHandler in this.eventHandlerResolver.Resolve(handler))
             {
                 handler.GetMethod("Handle").Invoke(eventHandler, new object[] { @event });
             }
