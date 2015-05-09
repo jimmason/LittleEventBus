@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using LittleEventBus.Testing.Infrastructure;
 using LittleEventBus.Testing.Infrastructure.Events;
 using NanoIoC;
