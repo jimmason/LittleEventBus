@@ -39,7 +39,7 @@
     <Compile Include="IEventHandler.cs" />
     <Compile Include="IEventHandlerResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleThreadedEventBus.cs" />
+    <Compile Include="LittleEventBus.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

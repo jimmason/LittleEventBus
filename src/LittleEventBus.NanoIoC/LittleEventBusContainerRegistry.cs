@@ -6,7 +6,7 @@ namespace LittleEventBus.NanoIoC
     {
         public void Register(IContainer container)
         {
-            container.Register<IEventBus,SingleThreadedEventBus>();
+            container.Register<IEventBus,LittleEventBus>();
             container.Register<IEventHandlerResolver,NanoIoCEventHandlerResolver>();
         }
     }

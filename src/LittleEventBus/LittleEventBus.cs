@@ -2,11 +2,11 @@
 
 namespace LittleEventBus
 {
-    public sealed class SingleThreadedEventBus : IEventBus
+    public sealed class LittleEventBus : IEventBus
     {
         private readonly IEventHandlerResolver eventHandlerResolver;
 
-        public SingleThreadedEventBus(IEventHandlerResolver eventHandlerResolver)
+        public LittleEventBus(IEventHandlerResolver eventHandlerResolver)
         {
             this.eventHandlerResolver = eventHandlerResolver;
         }
@@ -16,11 +16,11 @@ namespace LittleEventBus
             this.Publish(@event);
         }
 
-        public void PublishEvents(IEnumerable<Event> domainEvents)
+        public void PublishEvents(IEnumerable<Event> events)
         {
-            foreach (var domainEvent in domainEvents)
+            foreach (var @event in events)
             {
-                this.Publish(domainEvent);
+                this.Publish(@event);
             }
         }
 
