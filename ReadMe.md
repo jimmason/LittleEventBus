@@ -2,6 +2,35 @@
 
 Little event bus is a lightweight event bus for .net applications
 
+### Getting Started
+
+Little Event Bus Requires the usage of an IoC Container. Support for which is supplied via each containers own library. The long term goal is to support all major Containers, the following are currently supported.
+
+- StructureMap
+- NanoIoC
+
+
+#### Setup for NanoIoC
+
+Ensure you are calling the following in your applications startup
+
+```csharp
+
+Container.Global.RunAllRegistries();
+Container.Global.RunAllTypeProcessors();
+
+```
+
+#### Setup for StructureMap
+
+A registry is provided for StructureMap. Ensure you include the following when configuring StructureMap
+
+```chsharp
+x.AddRegistry(new LittleEventBusRegistry());
+
+```
+
+
 
 #### Events
 Events should inherit from the Event base class and set the EventId to a new Guid, or the Aggregate Root id of your Domain Object if used in this context.
@@ -16,7 +45,9 @@ Events should inherit from the Event base class and set the EventId to a new Gui
     }
 ```
 
-Events can then be placed on the bus like so
+#### The Event Bus
+
+Events can be placed on the bus like so.
 
 ```csharp
 //Create an event
@@ -27,7 +58,8 @@ this.eventBus.PublishEvent(@event);
 ```
 
 #### Event Handlers
-Event Handlers handle events that are placed on to the bus. And should ideally (though it isn't required) be named in a DoSomethingOnEventName format.
+Event Handlers handle events that are placed on to the bus. Each time an event is published Handle will be called on each event handler.
+These should ideally (though it isn't required) be named in a DoSomethingOnEventName format.
 You can have as many Event Handlers as you like for each event.
 
 ```csharp
