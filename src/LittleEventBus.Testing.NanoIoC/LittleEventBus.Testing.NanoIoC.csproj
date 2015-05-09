@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LittleEventBus.NanoIoC\LittleEventBus.NanoIoC.csproj">
+      <Project>{92eed546-a455-4bf3-a467-b660bdeaa961}</Project>
+      <Name>LittleEventBus.NanoIoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LittleEventBus.Testing.Infrastructure\LittleEventBus.Testing.Infrastructure.csproj">
       <Project>{23f9173d-72b9-4c5e-b98a-e2842cbef613}</Project>
       <Name>LittleEventBus.Testing.Infrastructure</Name>
