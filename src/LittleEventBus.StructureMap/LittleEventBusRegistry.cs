@@ -14,6 +14,7 @@ namespace LittleEventBus.StructureMap
             });
 
             this.For<IEventHandlerResolver>().Use<StructureMapEventHandlerResolver>();
+            this.For<IEventBus>().Use<SingleThreadedEventBus>();
         }
     }
 }
