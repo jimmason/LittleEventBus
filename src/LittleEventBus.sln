@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleEventBus.Tests", "Lit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleEventBus.NanoIoC", "LittleEventBus.NanoIoC\LittleEventBus.NanoIoC.csproj", "{92EED546-A455-4BF3-A467-B660BDEAA961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LittleEventBus.StructureMap", "LittleEventBus.StructureMap\LittleEventBus.StructureMap.csproj", "{002D309F-041A-4C1D-8E4E-544DEF5DAE08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{92EED546-A455-4BF3-A467-B660BDEAA961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92EED546-A455-4BF3-A467-B660BDEAA961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92EED546-A455-4BF3-A467-B660BDEAA961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{002D309F-041A-4C1D-8E4E-544DEF5DAE08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{002D309F-041A-4C1D-8E4E-544DEF5DAE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{002D309F-041A-4C1D-8E4E-544DEF5DAE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{002D309F-041A-4C1D-8E4E-544DEF5DAE08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,8 @@
 ﻿using System;
 using LittleEventBus.Example.Events;
-using NanoIoC;
+using LittleEventBus.StructureMap;
+
+using StructureMap;
 
 namespace LittleEventBus.Example
 {
@@ -9,11 +11,9 @@ namespace LittleEventBus.Example
         static void Main(string[] args)
         {
             //Do this in your apps startup
-            Container.Global.RunAllTypeProcessors();
-            Container.Global.RunAllRegistries();
-
+            ObjectFactory.Configure(x => { x.For<IEventBus>().Use<SingleThreadedEventBus>(); x.AddRegistry(new LittleEventBusRegistry()); });
             //In reality you want to take a IEventBus in the constructor and register this in your IoC
-            var eventBus = Container.Global.Resolve<IEventBus>();
+            var eventBus = ObjectFactory.GetInstance<IEventBus>();
             //Create an event
             var @event = new OrderPlaced(Guid.NewGuid());
 

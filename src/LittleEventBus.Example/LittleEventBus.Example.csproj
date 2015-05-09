@@ -32,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NanoIoC">
-      <HintPath>..\..\libs\NanoIoC.dll</HintPath>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\libs\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LittleEventBus.NanoIoC\LittleEventBus.NanoIoC.csproj">
-      <Project>{92eed546-a455-4bf3-a467-b660bdeaa961}</Project>
-      <Name>LittleEventBus.NanoIoC</Name>
+    <ProjectReference Include="..\LittleEventBus.StructureMap\LittleEventBus.StructureMap.csproj">
+      <Project>{002d309f-041a-4c1d-8e4e-544def5dae08}</Project>
+      <Name>LittleEventBus.StructureMap</Name>
     </ProjectReference>
     <ProjectReference Include="..\LittleEventBus\LittleEventBus.csproj">
       <Project>{95268845-1f1a-4cb4-8c51-4aac5db6841f}</Project>

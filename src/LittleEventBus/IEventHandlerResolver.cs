@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 
 namespace LittleEventBus
 {
     public interface IEventHandlerResolver
     {
-        IEnumerable<object> Resolve(Type handlerType);
+        IList Resolve(Type handlerType);
     }
 }
