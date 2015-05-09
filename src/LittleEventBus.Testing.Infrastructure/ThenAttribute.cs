@@ -2,7 +2,7 @@
 
 namespace LittleEventBus.Testing.Infrastructure
 {
-    public abstract class ThenAttribute : TestAttribute
+    public class ThenAttribute : TestAttribute
     {
     }
 }

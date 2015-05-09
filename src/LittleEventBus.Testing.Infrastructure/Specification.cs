@@ -2,8 +2,15 @@
 
 namespace LittleEventBus.Testing.Infrastructure
 {
+    [TestFixture]
     public abstract class Specification
     {
+        [TestFixtureSetUp]
+        public virtual void TestFixtureSetUp()
+        {
+            
+        }
+
 
         [SetUp]
         public void SetUp()
@@ -19,5 +26,6 @@ namespace LittleEventBus.Testing.Infrastructure
         protected virtual void When()
         {
         }
+
     }
 }
