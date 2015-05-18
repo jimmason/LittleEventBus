@@ -33,7 +33,7 @@ x.AddRegistry(new LittleEventBusRegistry());
 
 
 #### Events
-Events should inherit from the Event base class and set the EventId to a new Guid, or the Aggregate Root id of your Domain Object if used in this context.
+Events should inherit from the Event base class and set the EventId to a new Guid.
 
 ```csharp
     public sealed class OrderPlaced : Event
@@ -55,6 +55,10 @@ var @event = new OrderPlaced(Guid.NewGuid());
 
 //publish the event
 this.eventBus.PublishEvent(@event);
+
+//events can also be published asynchronously
+this.eventBus.PublishEventAsync(@event);
+
 ```
 
 #### Event Handlers
