@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 
 namespace LittleEventBus
 {
@@ -12,16 +12,13 @@ namespace LittleEventBus
         }
 
         public void PublishEvent(Event @event)
-        {
+        { 
             this.Publish(@event);
         }
 
-        public void PublishEvents(IEnumerable<Event> events)
+        public async void PublishEventAsync(Event @event)
         {
-            foreach (var @event in events)
-            {
-                this.Publish(@event);
-            }
+           await Task.Factory.StartNew(() => this.Publish(@event));
         }
 
         private void Publish(Event @event)
