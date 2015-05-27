@@ -23,10 +23,11 @@ Container.Global.RunAllTypeProcessors();
 
 #### Setup for StructureMap
 
-A registry is provided for StructureMap. Ensure you include the following when configuring StructureMap
+A registry is provided for StructureMap. Ensure you include the following when configuring StructureMap.
+If you are using this registry you will need to provide a type of one of your event handlers so it knows where to look
 
 ```chsharp
-x.AddRegistry(new LittleEventBusRegistry());
+x.AddRegistry(new LittleEventBusRegistry(typeof([OneOfYourEventHandlers])));
 
 ```
 

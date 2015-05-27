@@ -1,15 +1,16 @@
-﻿using StructureMap.Configuration.DSL;
+﻿using System;
+using StructureMap.Configuration.DSL;
 
 namespace LittleEventBus.StructureMap
 {
     public sealed class LittleEventBusRegistry : Registry
     {
-        public LittleEventBusRegistry()
+        public LittleEventBusRegistry(Type eventHandlerType)
         {
 
             Scan(x =>
             {
-                x.AssembliesFromApplicationBaseDirectory();
+                x.AssemblyContainingType(eventHandlerType);
                 x.ConnectImplementationsToTypesClosing(typeof (IEventHandler<>));
             });
 
