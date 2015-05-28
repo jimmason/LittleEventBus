@@ -1,6 +1,17 @@
 # Little Event Bus
 
-Little event bus is a lightweight event bus for .net applications
+Little event bus is a lightweight event bus for .net applications. Its designed for when you want to incorporate eventing in your application but don't necessarily need CQRS and Event Sourcing. This isn't to say that Little Event Bus cannot be used in these scenarios, but its features and the terminology used are focused on event driven applications over anything else.
+
+### Obtaining Little Event Bus
+
+Little Event Bus is available on Nuget
+
+```
+PM> Install-Package LittleEventBus
+PM> Install-Package LittleEventBus.StructureMap
+
+```
+Or via the [GitHub Releases](https://github.com/jimmason/LittleEventBus/releases)
 
 ### Getting Started
 
@@ -34,7 +45,7 @@ x.AddRegistry(new LittleEventBusRegistry(typeof([OneOfYourEventHandlers])));
 
 
 #### Events
-Events should inherit from the Event base class and set the EventId to a new Guid.
+Events should inherit from the Event base class and set the EventId to a new Guid or the Id of your Aggregate Root Object.
 
 ```csharp
     public sealed class OrderPlaced : Event
@@ -76,5 +87,3 @@ public sealed class EmailCustomerOnOrderPlaced : IEventHandler<OrderPlaced>
         }
     }
 ```
-
-For more info see the example project.
