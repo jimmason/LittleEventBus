@@ -2,7 +2,7 @@
 
 Little event bus is a lightweight event bus for .net applications. Its designed for when you want to incorporate eventing in your application but don't necessarily need CQRS and Event Sourcing. This isn't to say that Little Event Bus cannot be used in these scenarios, but its features and the terminology used are focused on event driven applications over anything else.
 
-### Obtaining Little Event Bus
+## Obtaining Little Event Bus
 
 Little Event Bus is available on Nuget
 
@@ -13,36 +13,7 @@ PM> Install-Package LittleEventBus.StructureMap
 ```
 Or via the [GitHub Releases](https://github.com/jimmason/LittleEventBus/releases)
 
-### Getting Started
-
-Little Event Bus Requires the usage of an IoC Container. Support for which is supplied via each containers own library. The long term goal is to support all major Containers, the following are currently supported.
-
-- StructureMap
-- NanoIoC
-
-
-#### Setup for NanoIoC
-
-Ensure you are calling the following in your applications startup
-
-```csharp
-
-Container.Global.RunAllRegistries();
-Container.Global.RunAllTypeProcessors();
-
-```
-
-#### Setup for StructureMap
-
-A registry is provided for StructureMap. Ensure you include the following when configuring StructureMap.
-If you are using this registry you will need to provide a type of one of your event handlers so it knows where to look
-
-```chsharp
-x.AddRegistry(new LittleEventBusRegistry(typeof([OneOfYourEventHandlers])));
-
-```
-
-
+## Getting Started
 
 #### Events
 Events should inherit from the Event base class and set the EventId to a new Guid or the Id of your Aggregate Root Object.
@@ -87,3 +58,36 @@ public sealed class EmailCustomerOnOrderPlaced : IEventHandler<OrderPlaced>
         }
     }
 ```
+
+## Setup for various IoC Containers
+
+Little Event Bus Requires the usage of an IoC Container. Support for which is supplied via each containers own library. The long term goal is to support all major Containers, the following are currently supported.
+
+- StructureMap
+- NanoIoC
+
+
+#### Setup for NanoIoC
+
+Ensure you are calling the following in your applications startup
+
+```csharp
+
+Container.Global.RunAllRegistries();
+Container.Global.RunAllTypeProcessors();
+
+```
+
+#### Setup for StructureMap
+
+A registry is provided for StructureMap. Ensure you include the following when configuring StructureMap.
+If you are using this registry you will need to provide a type of one of your event handlers so it knows where to look
+
+```chsharp
+x.AddRegistry(new LittleEventBusRegistry(typeof([OneOfYourEventHandlers])));
+
+```
+
+## Testing
+
+For testing a purely synchronous implementation of IEventBus is provided in the form of SynchronousEventBus. This can be swapped in to ensure that Asynchronous events are published in a Synchronous manner.
