@@ -1,6 +1,6 @@
 # Little Event Bus
 
-Little event bus is a lightweight event bus for .net applications. Its designed for when you want to incorporate eventing in your application but don't necessarily need CQRS and Event Sourcing. This isn't to say that Little Event Bus cannot be used in these scenarios, but its features and the terminology used are focused on event driven applications over anything else.
+Little event bus is a lightweight event bus for .net applications.
 
 ## Obtaining Little Event Bus
 
